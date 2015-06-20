@@ -657,7 +657,9 @@ beginning position."
       (cons 'timestamp (match-beginning 0)))))
 
 (defun org-gcal--notify (title mes)
-  (let ((file (expand-file-name (concat org-gcal-dir org-gcal-logo)))
+  (let ((file (expand-file-name
+	       (concat (file-name-directory
+			(locate-library "org-gcal")) org-gcal-logo)))
                 (mes mes)
                 (title title))
     (if (file-exists-p file)
